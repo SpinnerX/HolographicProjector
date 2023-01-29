@@ -30,6 +30,10 @@ public:
         while(true){
             cam >> frame;
 
+            if (frame.empty()){
+                cam.set(cv::CAP_PROP_POS_AVI_RATIO, 0);
+                continue;
+            }
             imshow(label, frame);
 
             if(waitKey(30) >= 0) break;
